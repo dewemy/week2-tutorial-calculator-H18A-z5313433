@@ -12,7 +12,9 @@ import java.io.IOException;
  * JavaFX App
  */
 public class App extends Application {
-
+    
+    private static Scene scene;
+    
     @Override
     public void start(Stage stage) throws IOException {
         stage.setTitle("Calculator");
@@ -26,6 +28,10 @@ public class App extends Application {
         Parent root = fxmlLoader.load();
         root.setStyle("-fx-font-family: serif");
         return root;
+    }
+    
+    static void setRoot(String fxml) throws IOException {
+        scene.setRoot(loadFXML(fxml));
     }
 
     public static void main(String[] args) {
